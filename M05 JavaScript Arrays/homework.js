@@ -23,7 +23,7 @@ function incrementarPorUno(array) {
    // El arreglo recibido por parámetro contiene números.
    // Retornar un arreglo con los elementos incrementados en +1.
    // Tu código:
-   var arrayMasUno = array.map(function sumarUno (x) {
+   var arrayMasUno = array.map( (x) => {
       return x + 1;
    })
    return arrayMasUno;
@@ -59,17 +59,22 @@ function arrayContiene(array, elemento) {
    // Verifica si el elemento existe dentro del arreglo recibido.
    // Retornar true si está, o false si no está.
    // Tu código:
-   return array.includes(elemento)
+   return array.includes(elemento);
 }
 
 function agregarNumeros(arrayOfNums) {
    // El parámetro "arrayOfNums" debe ser un arreglo de números.
    // Suma todos los elementos y retorna el resultado.
    // Tu código:
-  var suma = 0;
+  /*var suma = 0;
   arrayOfNums.forEach( numero => {
     suma = suma + numero;
   });
+  return suma;*/
+  var suma = arrayOfNums[0];
+  for (let i = 1; i < arrayOfNums.length; i++) {
+   suma = suma + arrayOfNums[i];
+  }
   return suma;
 }
 
@@ -145,6 +150,7 @@ function empiezaConNueve(num) {
    // Tu código:
    var nuevoNum = num.toString();
    var numero = nuevoNum.split('');
+   
    if (numero[0] == 9) {
       return true;
    } else {
@@ -165,10 +171,11 @@ function todosIguales(array) {
       }
    }
    return equivalencia;
-   // var equivalencia = array.every(num => {
-   //    return num === array[0];
-   // })
-   // return equivalencia;
+
+   /*var equivalencia = array.every(num => {
+      return num === array[0];
+   })
+   return equivalencia;*/
 }
 
 function mesesDelAño(array) {
@@ -186,7 +193,7 @@ function mesesDelAño(array) {
          }
       })
       return nuevoArray;
-   }
+   };
 }
 
 function tablaDelSeis() {
@@ -194,7 +201,7 @@ function tablaDelSeis() {
    // La función devuelve un arreglo con los resultados de la tabla de multiplicar del 6 en orden creciente.
    // Tu código:
    var tablaSeis = [0];
-   var multiplo = 6;
+   var multiplo = 0;
    for (let i = 1; i <= 10; i++) {
       multiplo = 6 * i;
       tablaSeis.push(multiplo);
@@ -226,7 +233,7 @@ function breakStatement(num) {
    // la ejecución y retornar el string: "Se interrumpió la ejecución".
    // [PISTA]: utiliza el statement 'break'.
    // Tu código:
-   var incremento = 0
+   /*var incremento = 0
    var nuevoArreglo = [];      
    while (incremento < 10){
       num = num + 2;
@@ -240,7 +247,22 @@ function breakStatement(num) {
       return 'Se interrumpió la ejecución';
    } else {
       return nuevoArreglo;
-   }
+   }*/
+
+   var nuevoArreglo = [];
+   for (let i = 1; i < 11; i++) {
+      if (num === i) {
+         break;
+      } else {
+         num = num + 2;
+         nuevoArreglo.push(num);
+      }
+   } 
+      if (nuevoArreglo.length < 10) {
+         return "Se interrumpió la ejecución";
+      } else {
+         return nuevoArreglo;
+      }
 }
 function continueStatement(num) {
    // Iterar en un bucle aumentando en 2 el número recibido hasta un límite de 10 veces.
